@@ -2,12 +2,10 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 import Throws.PurchaseThrows;
 import comparators.PurchaseCategoryComparate;
-import comparators.PurchaseDayComparate;
 
 public class ShoppingCart {
 	private ArrayList<Purchase> mass;
@@ -34,13 +32,6 @@ public class ShoppingCart {
 	}
 	
 	public void SortDay(){
-		PurchaseDayComparate sortDay=new PurchaseDayComparate();
-		//mass.sort(sortDay);
-	//	mass.sort((Purchase a, Purchase b)-> {
-		//	 return Integer.compare(a.getDate(), b.getDate())<0 ? a : b;
-		//});
-		//Comparator<Purchase> com= (p1,p2) -> Integer.compare(p1.getDate(), p2.getDate());
-		//mass.sort(com);
 		mass.sort((Purchase p1, Purchase p2) -> Integer.compare(p1.getDate(), p2.getDate()));
 		
 		String [] mas={"czxcz","345","75"};
@@ -60,9 +51,9 @@ public class ShoppingCart {
 	}
 
 	public String toString(){
-		String s="\t����\t\t����\t\t���-��\t\t������,%\t������,���.\t�����\n";
+		StringBuffer s= new StringBuffer();
 		for (Purchase p : mass)
-			s+=p.toString()+"\n";
+			s.append(p.toString()+"\n");
 		return s+"\n\n";
 	}
 	
